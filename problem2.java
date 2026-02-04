@@ -1,73 +1,72 @@
-// ================== Interfaces ==================
-
-interface IdentityVerification {
-    void verifyIdentity();
+// ================== Identity Verification ==================
+class IdentityVerification {
+    public void verifyIdentity() {
+        System.out.println("Default identity verification.");
+    }
 }
 
-interface EnvironmentCheck {
-    void checkEnvironment();
-}
-
-interface BehaviourMonitoring {
-    void monitorBehaviour();
-}
-
-// ================== Identity Verification Techniques ==================
-
-class HumanIdentity implements IdentityVerification {
+class HumanIdentity extends IdentityVerification {
     public void verifyIdentity() {
         System.out.println("Verifying identity using human proctor.");
     }
 }
 
-class AIIdentity implements IdentityVerification {
+class AIIdentity extends IdentityVerification {
     public void verifyIdentity() {
         System.out.println("Verifying identity using AI system.");
     }
 }
 
-class BiometricIdentity implements IdentityVerification {
+class BiometricIdentity extends IdentityVerification {
     public void verifyIdentity() {
         System.out.println("Verifying identity using biometric scanner.");
     }
 }
 
-// ================== Environment Check Techniques ==================
+// ================== Environment Check ==================
+class EnvironmentCheck {
+    public void checkEnvironment() {
+        System.out.println("Default environment check.");
+    }
+}
 
-class HumanEnvironment implements EnvironmentCheck {
+class HumanEnvironment extends EnvironmentCheck {
     public void checkEnvironment() {
         System.out.println("Checking environment manually by human.");
     }
 }
 
-class AIEnvironment implements EnvironmentCheck {
+class AIEnvironment extends EnvironmentCheck {
     public void checkEnvironment() {
         System.out.println("Checking environment using AI camera system.");
     }
 }
 
-// ================== Behaviour Monitoring Techniques ==================
+// ================== Behaviour Monitoring ==================
+class BehaviourMonitoring {
+    public void monitorBehaviour() {
+        System.out.println("Default behaviour monitoring.");
+    }
+}
 
-class HumanBehaviour implements BehaviourMonitoring {
+class HumanBehaviour extends BehaviourMonitoring {
     public void monitorBehaviour() {
         System.out.println("Monitoring behaviour using human proctor.");
     }
 }
 
-class AIBehaviour implements BehaviourMonitoring {
+class AIBehaviour extends BehaviourMonitoring {
     public void monitorBehaviour() {
         System.out.println("Monitoring behaviour using AI system.");
     }
 }
 
 // ================== Proctoring Controller ==================
-
 class ProctoringController {
     private IdentityVerification identityVerifier;
     private EnvironmentCheck environmentChecker;
     private BehaviourMonitoring behaviourMonitor;
 
-    // Constructor allows setting different techniques dynamically
     public ProctoringController(IdentityVerification id,
                                 EnvironmentCheck env,
                                 BehaviourMonitoring beh) {
@@ -85,16 +84,15 @@ class ProctoringController {
 }
 
 // ================== Main ==================
-
-public class OnlineProctoring {
+public class problem2 {
     public static void main(String[] args) {
 
-        // Example 1: Simple exam - only identity verification
+        // Example 1: Only identity verification
         IdentityVerification humanId = new HumanIdentity();
         ProctoringController exam1 = new ProctoringController(humanId, null, null);
         exam1.startExam();
 
-        // Example 2: Full exam with AI-based monitoring
+        // Example 2: Full AI-based monitoring
         IdentityVerification aiId = new AIIdentity();
         EnvironmentCheck aiEnv = new AIEnvironment();
         BehaviourMonitoring aiBeh = new AIBehaviour();
