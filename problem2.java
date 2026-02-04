@@ -1,4 +1,3 @@
-// ================== Identity Verification ==================
 class IdentityVerification {
     public void verifyIdentity() {
         System.out.println("Default identity verification.");
@@ -23,7 +22,6 @@ class BiometricIdentity extends IdentityVerification {
     }
 }
 
-// ================== Environment Check ==================
 class EnvironmentCheck {
     public void checkEnvironment() {
         System.out.println("Default environment check.");
@@ -42,7 +40,6 @@ class AIEnvironment extends EnvironmentCheck {
     }
 }
 
-// ================== Behaviour Monitoring ==================
 class BehaviourMonitoring {
     public void monitorBehaviour() {
         System.out.println("Default behaviour monitoring.");
@@ -61,7 +58,6 @@ class AIBehaviour extends BehaviourMonitoring {
     }
 }
 
-// ================== Proctoring Controller ==================
 class ProctoringController {
     private IdentityVerification identityVerifier;
     private EnvironmentCheck environmentChecker;
@@ -83,23 +79,18 @@ class ProctoringController {
     }
 }
 
-// ================== Main ==================
 public class problem2 {
     public static void main(String[] args) {
-
-        // Example 1: Only identity verification
         IdentityVerification humanId = new HumanIdentity();
         ProctoringController exam1 = new ProctoringController(humanId, null, null);
         exam1.startExam();
 
-        // Example 2: Full AI-based monitoring
         IdentityVerification aiId = new AIIdentity();
         EnvironmentCheck aiEnv = new AIEnvironment();
         BehaviourMonitoring aiBeh = new AIBehaviour();
         ProctoringController exam2 = new ProctoringController(aiId, aiEnv, aiBeh);
         exam2.startExam();
 
-        // Example 3: Mixed techniques
         IdentityVerification bioId = new BiometricIdentity();
         EnvironmentCheck humanEnv = new HumanEnvironment();
         BehaviourMonitoring aiBehaviour = new AIBehaviour();
