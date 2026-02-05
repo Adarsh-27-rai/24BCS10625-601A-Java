@@ -63,24 +63,29 @@ class ProctoringController {
     private EnvironmentCheck environmentChecker;
     private BehaviourMonitoring behaviourMonitor;
 
-    public ProctoringController(IdentityVerification id,
-                                EnvironmentCheck env,
-                                BehaviourMonitoring beh) {
+    public ProctoringController(IdentityVerification id, EnvironmentCheck env, BehaviourMonitoring beh) {
         this.identityVerifier = id;
         this.environmentChecker = env;
         this.behaviourMonitor = beh;
     }
 
     public void startExam() {
-        if(identityVerifier != null) identityVerifier.verifyIdentity();
-        if(environmentChecker != null) environmentChecker.checkEnvironment();
-        if(behaviourMonitor != null) behaviourMonitor.monitorBehaviour();
+        if(identityVerifier != null) { 
+            identityVerifier.verifyIdentity();
+        }
+        if(environmentChecker != null) { 
+            environmentChecker.checkEnvironment();
+        }
+        if(behaviourMonitor != null) { 
+            behaviourMonitor.monitorBehaviour();
+        }
         System.out.println("Exam started successfully.\n");
     }
 }
 
 public class problem2 {
     public static void main(String[] args) {
+
         IdentityVerification humanId = new HumanIdentity();
         ProctoringController exam1 = new ProctoringController(humanId, null, null);
         exam1.startExam();
