@@ -27,7 +27,8 @@ public class Course {
         return courseName;
     }
 
-    public ArrayList<Student> getEnrolledStudent() {
+    // pluralised getter for clarity
+    public ArrayList<Student> getEnrolledStudents() {
         return enrolledStudents;
     }
 
@@ -36,6 +37,5 @@ public class Course {
         System.out.println("Course Name: " + courseName);
         System.out.println("Max Seats: " + maxSeats);
         System.out.println("Enrolled Students: " + enrolledStudents.size());
-        System.out.println();
     }
 }
