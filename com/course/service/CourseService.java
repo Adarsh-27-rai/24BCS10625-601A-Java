@@ -25,7 +25,7 @@ public class CourseService {
             throw new CourseNotFoundException();
         }
 
-        // check for duplicate enrollment using accessor with normal loop
+
         ArrayList<Student> list = course.getEnrolledStudents();
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getStudentId() == s.getStudentId()) {
@@ -33,7 +33,6 @@ public class CourseService {
             }
         }
 
-        // verify seat availability through getter
         if (list.size() >= course.getMaxSeats()) {
             throw new CourseFullException();
         }
