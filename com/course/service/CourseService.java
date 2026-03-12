@@ -25,14 +25,6 @@ public class CourseService {
             throw new CourseNotFoundException();
         }
 
-
-        ArrayList<Student> list = course.getEnrolledStudents();
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getStudentId() == s.getStudentId()) {
-                throw new DuplicateEnrollmentException();
-            }
-        }
-
         if (list.size() >= course.getMaxSeats()) {
             throw new CourseFullException();
         }
